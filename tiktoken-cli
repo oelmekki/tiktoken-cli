@@ -1,15 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
+import os
 import sys
 import tiktoken
 
 content = sys.stdin.read()
 
-model = "gpt-3.5-turbo-0301"
+default = "gpt-3.5-turbo-0301"
+model = os.getenv('TIKTOKEN_MODEL', default)
 
 try:
     encoding = tiktoken.encoding_for_model(model)
 except KeyError:
-    encoding = tiktoken.get_encoding("cl100k_base")
+    encoding = tiktoken.get_encoding(default)
 
 print(len(encoding.encode(content)))
