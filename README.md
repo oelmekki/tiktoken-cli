@@ -8,7 +8,7 @@ it in your favorite language.
 If you play with openAI's GPT API, you probably encounter one annoying
 problem : your prompt is allowed a given amount of tokens, you have no
 idea how those tokens are counted, and you only know it was too much when
-the api replies with an error, which is seriously annoying (and slow).
+the API replies with an error, which is seriously annoying (and slow).
 
 OpenAI published its [tiktoken](https://github.com/openai/tiktoken) token
 counting library to solve that, which helps a lot! If you're writing a
@@ -28,7 +28,7 @@ A note for those of you who may be new to GPT's API : having the count of
 tokens from your prompt alone is not enough to avoid the exceed context
 errors. This is because the API wraps your messages with its own content.
 The exact algorithm to know if you're going to exceed the count is
-documented [in the api doc here](https://platform.openai.com/docs/guides/chat)
+documented [in the API doc here](https://platform.openai.com/docs/guides/chat)
 (it's in the block "Deep dive : Counting tokens for chat API calls").
 
 ## Install
