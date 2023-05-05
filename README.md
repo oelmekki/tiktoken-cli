@@ -80,6 +80,13 @@ puts output_data # 4
 puts output_data.to_i + 10
 ```
 
+Note that forking a subprocess like that is costly. You won't notice it if
+you fork once per request, you will definitely notice it if you fork ten
+times. So if you want to compute the token count for a list of messages,
+it's best to concatenate all the messages in a single string and count
+tokens on that string rather than counting tokens for each message
+individually and summing it up, or the performance cost will snowball.
+
 ## Model
 
 `tiktoken` counts tokens differently based on model. By default, the model
